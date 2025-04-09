@@ -4,12 +4,20 @@
         {
             "src": "bilibili.html",
             "use": "@vercel/static"
+        },
+        {
+          "src": "public/**",  // 确保 public 下的文件被部署
+          "use": "@vercel/static"
         }
     ],
     "routes": [
         {
             "src": "/",
             "dest": "/bilibili.html"
+        },
+        {
+            "src": "/images/(.*)",  // 匹配图片路径
+            "dest": "/public/images/$1"  // 指向实际文件
         }
     ]
 }
